@@ -26,7 +26,9 @@ export const getInfoOfTour = (date, people, arr, total, time) => {
             }
         });
         let tourDateValue = date.value;
-        total.textContent = '';
+        if (total) {
+            total.textContent = '';
+        }
         if (time) {
             time.textContent = tourDateValue;
         }
@@ -53,7 +55,6 @@ export const getInfoOfTour = (date, people, arr, total, time) => {
     });
 
 }
-getInfoOfTour(tourDate, tourPeople, ['tour__option']);
 export const reservationToTour = () => {
     dateOfReservation.textContent = '';
     reservationPrice.textContent = '';
@@ -61,7 +62,7 @@ export const reservationToTour = () => {
         reservationPrice, dateOfReservation);
 }
 
-
+getInfoOfTour(tourDate, tourPeople, ['tour__option']);
 reservationToTour();
 
 
