@@ -15,7 +15,7 @@ export const getInfoOfTour = (date, people, arr, total, time) => {
     dbDate.forEach(el => {
         const optionDate = document.createElement('option');
         optionDate.setAttribute('value', `${el['date']}`);
-            optionDate.classList.add(...arr);
+        optionDate.classList.add(...arr);
         optionDate.textContent = `${el['date']}`;
         date.append(optionDate);
     })
@@ -39,7 +39,7 @@ export const getInfoOfTour = (date, people, arr, total, time) => {
                 const optionValueEnd = obj['max-people'];
                 for (let i = optionValueStart; i <= optionValueEnd; i++) {
                     const optionPeople = document.createElement('option');
-                        optionPeople.classList.add(...arr);
+                    optionPeople.classList.add(...arr);
                     optionPeople.setAttribute('value', `${i}`);
                     optionPeople.textContent = `${i}`;
                     people.append(optionPeople);

@@ -18,11 +18,11 @@ items.forEach(el => {
 buttons.forEach((btn, index) => {
     btn.addEventListener('click', () => {
         for (let i = 0; i < items.length; i++) {
-            if (index === i) {
-                textWrapper[i].style.height =
-                    textWrapper[i].classList.contains('travel__item_active') ? '' :
-                        `${heightWrapper}px`;
+            if (i === index) {
                 items[i].classList.toggle('travel__item_active');
+                textWrapper[i].style.height =
+                    textWrapper[i].closest('.travel__item_active') ? `${heightWrapper}px` :
+                       '' ;
             } else {
                 items[i].classList.remove('travel__item_active');
                 textWrapper[i].style.height = '';

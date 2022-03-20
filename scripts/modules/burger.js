@@ -1,6 +1,6 @@
 const btnMenu = document.querySelector('.header__menu-button');
 const headerMenu = document.querySelector('.header__menu');
-const headerItem = document.querySelectorAll('.header__item');
+const menu = document.querySelector('.header__list');
 const headerMenuActive = document.querySelector('.header__menu_active');
 
 if (headerMenuActive) {
@@ -8,12 +8,37 @@ if (headerMenuActive) {
 }
 
 
-headerItem.forEach(item => {
-    item.addEventListener('click', (e) => {``
+menu.addEventListener('click', function(e) {
+    if(e.target.classList.contains('header__link')){
         e.preventDefault();
-    })
+
+        let link = e.target;
+        scrollToId(link.hash);
+    }
 })
 
+
+function scrollToId(id){
+    let target = document.querySelector(id);
+    let styles = window.getComputedStyle(target);
+
+    if(target !== null){
+        let pos = elemOffsetTop(target) - menu.clientHeight - parseFloat(styles.marginTop);
+        scrollToY(pos);
+    }
+}
+
+function scrollToY(pos){
+    window.scrollTo({
+        top: pos,
+        behavior: "smooth"
+    });
+}
+
+function elemOffsetTop(node){
+    let coords = node.getBoundingClientRect();
+    return coords.top + window.pageYOffset;
+}
 
 
 btnMenu.addEventListener('click', (e) => {
