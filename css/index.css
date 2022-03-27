@@ -3361,3 +3361,82 @@ p {
 				margin-bottom: 15px;
 		}
 }
+
+.overlay-modal__wrapper {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #E5E5E5;
+	justify-content: center;
+	align-items: center;
+	z-index: 999;
+}
+
+.overlay-modal {
+	padding: 77px 200px 80px;
+	margin: auto;
+	width: 980px;
+	height: 495px;
+	background: #FFFFFF;
+    text-align: center;
+	border: 1px solid #AFAFAF;
+	box-sizing: border-box;
+	border-radius: 30px;
+}
+
+.modal-success {
+	display: block;
+}
+
+
+.modal-title {
+	width: 580px;
+	height: 102px;
+	padding: 0 20px;
+	margin-bottom: 40px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 34px;
+	line-height: 150%;
+	letter-spacing: 0.02em;
+	color: #303030;
+}
+.modal-title__error {
+	padding: 0;
+}
+
+.modal-descr {
+	margin-bottom: 64px;
+	width: 558px;
+	height: 27px;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 150%;
+	color: #303030;
+}
+
+.modal-btn {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+	background-color: #78EC6E;
+	border-radius: 50%;
+}
+
+.modal-btn__error {
+	width: 360px;
+	height: 76px;
+	background: #FCB500;
+	border-radius: 12px;
+}
+.modal-error {
+	display: none;
+}
+
