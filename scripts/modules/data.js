@@ -53,7 +53,7 @@ export const getInfoOfTour = (date, people, arr, total, time) => {
             }
         })
     });
-
+    return {people, total, time};
 }
 export const reservationToTour = () => {
     dateOfReservation.textContent = '';
