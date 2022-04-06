@@ -39,8 +39,6 @@ const httpRequest = (url, {
     }
 }
 
-
-
 const fetchRequest = async (url, {
     method = 'GET',
     body,
@@ -71,8 +69,12 @@ const fetchRequest = async (url, {
 };
 
 
-form.addEventListener('submit', (e) => {
+reservationButton.addEventListener('click', (e) => {
     e.preventDefault();
+     showModal(submitForm);
+})
+
+const submitForm = () => {
     fetchRequest(URL, {
         method: 'POST',
         body: {
@@ -107,9 +109,7 @@ form.addEventListener('submit', (e) => {
             'Content-Type': 'application/json',
         }
     })
-    showModal();
-})
-
+}
 
 // 2 task
 

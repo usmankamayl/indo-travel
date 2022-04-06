@@ -3,7 +3,7 @@ import loadStyle from "./loadStyle.js";
 const form = document.querySelector('.reservation__form');
 const totalPrice = document.querySelector('.reservation__price');
 
-const showModal =  async () => {
+const showModal =  async (cb) => {
     await loadStyle('css/modal.css');
     const overlay = document.createElement('div');
     const modalWindow = document.createElement('div');
@@ -37,11 +37,10 @@ const showModal =  async () => {
     return new Promise(resolve => {
         update.addEventListener('click', () => {
             overlay.remove();
-            resolve(false);
         })
         confirm.addEventListener('click', () => {
             overlay.remove();
-            resolve(true);
+            cb();
         })
     })
 
