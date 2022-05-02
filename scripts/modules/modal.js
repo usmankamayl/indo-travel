@@ -39,8 +39,8 @@ const showModal =  async (cb) => {
             overlay.remove();
         })
         confirm.addEventListener('click', () => {
-            overlay.remove();
-            cb();
+                overlay.remove();
+                cb();
         })
     })
 

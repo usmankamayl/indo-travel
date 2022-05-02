@@ -69,47 +69,58 @@ const fetchRequest = async (url, {
 };
 
 
-reservationButton.addEventListener('click', (e) => {
-    e.preventDefault();
-     showModal(submitForm);
-})
-
 const submitForm = () => {
-    fetchRequest(URL, {
-        method: 'POST',
-        body: {
-            dates: form.dates.value,
-            people: form.people.value,
-            name: name.value,
-            phone: phone.value
-        },
-        callback(err, data) {
-            const p = document.createElement('p');
-            if (err) {
-                console.warn(err, data);
-                p.style.cssText = 'font-style:italic;font-size:24px;color:red;'
-                p.textContent = `Что-то пошло не так...`;
+        fetchRequest(URL, {
+            method: 'POST',
+            body: {
+                dates: form.dates.value,
+                people: form.people.value,
+                name: name.value,
+                phone: phone.value
+            },
+            callback(err, data) {
+                const p = document.createElement('p');
+                if (err) {
+                    console.warn(err, data);
+                    p.style.cssText = 'font-style:italic;font-size:24px;color:red;'
+                    p.textContent = `Что-то пошло не так...`;
+                    form.append(p);
+                    setTimeout(() => {
+                        p.remove();
+                    }, 2000)
+                    return;
+                }
+                form.reset();
+                document.querySelector('.reservation__data').textContent = '';
+                document.querySelector('.reservation__price').textContent = '';
+                p.style.cssText = 'font-style:italic;font-size:24px;color:blue;'
+                p.textContent = `Заявка на бронирование успешно отправлена. Номер заявки ${data.id}`;
                 form.append(p);
                 setTimeout(() => {
                     p.remove();
                 }, 2000)
-                return;
+            },
+            headers: {
+                'Content-Type': 'application/json',
             }
-            form.reset();
-            document.querySelector('.reservation__data').textContent = '';
-            document.querySelector('.reservation__price').textContent = '';
-            p.style.cssText = 'font-style:italic;font-size:24px;color:blue;'
-            p.textContent = `Заявка на бронирование успешно отправлена. Номер заявки ${data.id}`;
-            form.append(p);
-            setTimeout(() => {
-                p.remove();
-            }, 2000)
-        },
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    })
+        });
 }
+
+let flag;
+name.addEventListener('input',() => {
+    name.value = name.value.replace(/[a-z0-9]/gi,'');
+});
+
+name.addEventListener('blur',() => {
+        flag = name.value.trim().match(/\s+/g).length;
+});
+
+reservationButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (flag >= 2) {
+        showModal(submitForm);
+    } else alert('Введите полностью фамилию,  имя и отчестсво');
+})
 
 // 2 task
 
