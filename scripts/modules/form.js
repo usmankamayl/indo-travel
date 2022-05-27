@@ -106,21 +106,22 @@ const submitForm = () => {
         });
 }
 
-let flag;
-name.addEventListener('input',() => {
-    name.value = name.value.replace(/[a-z0-9]/gi,'');
-});
 
-name.addEventListener('blur',() => {
-        flag = name.value.trim().match(/\s+/g).length;
-});
+// let flag;
+    name.addEventListener('input',() => {
+        name.value = name.value.replace(/[a-z0-9]/gi,'');
+    });
+    //
+    // name.addEventListener('blur',() => {
+    //     flag = name.value.trim().match(/\s+/g).length;
+    // });
 
-reservationButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (flag >= 2) {
-        showModal(submitForm);
-    } else alert('Введите полностью фамилию,  имя и отчестсво');
-})
+    // reservationButton.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //         showModal(submitForm);
+    // })
+
+
 
 // 2 task
 
@@ -171,3 +172,58 @@ document.addEventListener('click', (e) => {
         modalWrapper.style.display = 'none';
     }
 })
+
+//12 lesson
+const inputMask = new Inputmask('+7 (999)-999-99-99');
+inputMask.mask(phone);
+
+const justValidate = new JustValidate('.reservation__form', {
+    errorFieldCssClass: 'just-validate-error-label',
+    errorLabelStyle: {
+        paddingTop: '32px',
+        width: '100%',
+        textAlign: 'center',
+        color: 'red',
+        textDecoration: 'underlined',
+    },
+});
+
+justValidate
+    .addField('.reservation__input_name', [
+        {
+            validator(value) {
+                countWordsString(value);
+              return Number(countWordsString(value)) > 2;
+            },
+            errorMessage: 'Введите полностью инициалы',
+        },
+        {
+            rule: 'required',
+            errorMessage: 'Введите ваше имя',
+        },
+    ])
+    .addField('#reservation__phone', [
+        {
+            rule: 'required',
+            errorMessage: 'Введите телефон',
+        },
+    ])
+    .onSuccess(event => {
+        showModal(submitForm);
+    })
+
+function countWordsString(string){
+
+    let counter = 1;
+
+    // Change multiple spaces for one space
+    string=string.replace(/[\s]+/gim, ' ');
+
+    // Lets loop through the string and count the words
+    string.replace(/(\s+)/g, function (a) {
+        // For each word found increase the counter value by 1
+        counter++;
+    });
+
+    return counter;
+}

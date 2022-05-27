@@ -4,6 +4,8 @@ import './modules/burger.js';
 import './modules/fly.js';
 import {getInfoOfTour, reservationToTour} from "./modules/data.js";
 import './modules/form.js';
+import './modules/swiper.js';
+
 timer('2022/04/15');
 
 
@@ -35,11 +37,14 @@ const mask = event => {
 
 const inputPhone = document.getElementById('reservation__phone');
 inputPhone.type = 'tel';
-if (inputPhone.type === 'tel') {
-    inputPhone.addEventListener('input', mask);
-    inputPhone.addEventListener('focus', mask);
-    inputPhone.addEventListener('blur', mask);
-    inputPhone.addEventListener('keydown', mask);
-}
+// if (inputPhone.type === 'tel') {
+//     inputPhone.addEventListener('input', mask);
+//     inputPhone.addEventListener('focus', mask);
+//     inputPhone.addEventListener('blur', mask);
+//     inputPhone.addEventListener('keydown', mask);
+// }
+
+
+
 
 

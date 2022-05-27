@@ -9,10 +9,13 @@
   <link rel="preload" href="fonts/nunito-v20-latin_cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="css/swiper-bundle.css"/>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/timer.css">
-<!--  <link rel="stylesheet" href="css/modal.css">-->
   <title>Indonesia</title>
+  <script defer src="scripts/swiper-bundle.min.js"></script>
+  <script defer src="scripts/just-validate.production.min.js"></script>
+  <script defer src="scripts/inputmask.min.js"></script>
   <script src="scripts/main.js" type="module"></script>
 </head>
 <body>
@@ -137,23 +140,11 @@
             <label class="tour__select-wrapper tour__select-wrapper_date">
               <select name="dates" id="tour__date" class="tour__select">
                 <option value="" class="tour__option">Выбери дату</option>
-<!--                <option value="04.02 - 18.02" class="tour__option">04.02 - 18.02</option>-->
-<!--                <option value="07.02 - 21.02" class="tour__option">07.02 - 21.02</option>-->
-<!--                <option value="12.02 - 26.02" class="tour__option">12.02 - 26.02</option>-->
-<!--                <option value="15.02 - 05.03" class="tour__option">15.02 - 05.03</option>-->
-<!--                <option value="20.02 - 05.03" class="tour__option">20.02 - 05.03</option>-->
-<!--                <option value="23.02 - 10.03" class="tour__option">23.02 - 10.03</option>-->
               </select>
             </label>
             <label class="tour__select-wrapper tour__select-wrapper_people">
               <select name="people" id="tour__people" class="tour__select">
                 <option value="" class="tour__option">Количество человек</option>
-<!--                <option value="" class="tour__option">1</option>-->
-<!--                <option value="" class="tour__option">2</option>-->
-<!--                <option value="" class="tour__option">3</option>-->
-<!--                <option value="" class="tour__option">4</option>-->
-<!--                <option value="" class="tour__option">5</option>-->
-<!--                <option value="" class="tour__option">6</option>-->
               </select>
             </label>
             <button class="button tour__button">Узнать цену</button>
@@ -200,39 +191,39 @@
         <h2 class="section__title album__title">Фотоальбом</h2>
         <p class="section__text section__text_big album__text">За годы поездок у нас накопилось много фотографий из Индонезии. Представляем их вам.</p>
       </div>
-      <div class="album__slider">
-        <ul class="album__list">
-          <li class="album__item">
+      <div class="album__slider swiper">
+        <ul class="album__list swiper-wrapper">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/1.avif" type="image/avif">
               <source srcset="img/album/1.webp" type="image/webp">
               <img src="img/album/1.jpg" alt="Остров" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/2.avif" type="image/avif">
               <source srcset="img/album/2.webp" type="image/webp">
               <img src="img/album/2.jpg" alt="Горы" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/3.avif" type="image/avif">
               <source srcset="img/album/3.webp" type="image/webp">
               <img src="img/album/3.jpg" alt="Лодки" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/4.avif" type="image/avif">
               <source srcset="img/album/4.webp" type="image/webp">
               <img src="img/album/4.jpg" alt="Закат" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/5.avif" type="image/avif">
               <source srcset="img/album/5.webp" type="image/webp">
               <img src="img/album/5.jpg" alt="Волны" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/6.avif" type="image/avif">
               <source srcset="img/album/6.webp" type="image/webp">
@@ -252,21 +243,11 @@
               <label class="reservation__select-wrapper reservation__select-wrapper_date">
                 <select name="dates" id="reservation__date" class="reservation__select">
                   <option value="" class="tour__option">Дата путешествия</option>
-<!--                  <option value="4.02 - 18.02" class="tour__option reservation__option">4.02 - 18.02</option>-->
-<!--                  <option value="7.02 - 21.02" class="tour__option reservation__option">7.02 - 21.02</option>-->
-<!--                  <option value="12.02 - 26.02" class="tour__option reservation__option">12.02 - 26.02</option>-->
-<!--                  <option value="20.02 - 6.03" class="tour__option reservation__option">20.02 - 6.03</option>-->
                 </select>
               </label>
               <label class="reservation__select-wrapper reservation__select-wrapper_people">
                 <select name="people" id="reservation__people" class="reservation__select">
                   <option value="" class="tour__option reservation__option">Количество человек</option>
-<!--                  <option value="" class="tour__option reservation__option">1</option>-->
-<!--                  <option value="" class="tour__option reservation__option">2</option>-->
-<!--                  <option value="" class="tour__option reservation__option">3</option>-->
-<!--                  <option value="" class="tour__option reservation__option">4</option>-->
-<!--                  <option value="" class="tour__option reservation__option">5</option>-->
-<!--                  <option value="" class="tour__option reservation__option">6</option>-->
                 </select>
               </label>
             </div>
@@ -283,8 +264,8 @@
           </div>
           <div class="reservation__bottom">
             <div class="reservation__info">
-              <p class="reservation__data">24 ноября - 7 декабря, 4 человека</p>
-              <p class="reservation__price">459 590₽</p>
+              <p class="reservation__data"></p>
+              <p class="reservation__price"></p>
             </div>
             <button class="button reservation__button">Забронировать</button>
           </div>
